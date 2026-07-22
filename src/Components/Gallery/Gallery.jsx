@@ -1,106 +1,83 @@
+import { useEffect, useState } from "react";
 import "./Gallery.css";
 import GalleryCard from "./GalleryCard";
+import { getFeaturedArtworks } from "../../services/artworkService";
 
-const gallery = [
+export default function Gallery() {
+    const [artworks, setArtworks] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-    {
-        title:"Ocean Coasters",
-        image:"https://placehold.co/800x900",
-        large:true
-    },
+    useEffect(() => {
+        fetchArtworks();
+    }, []);
 
-    {
-        title:"Serving Tray",
-        image:"https://placehold.co/600x600",
-    },
+    async function fetchArtworks() {
+        const { data, error } = await getFeaturedArtworks();
 
-    {
-        title:"Resin Clock",
-        image:"https://placehold.co/800x900",
-        large:true
-    },
+        if (error) {
+            console.error(error);
+        } else {
+            setArtworks(data);
+        }
 
-    {
-        title:"Wall Art",
-        image:"https://placehold.co/600x600",
-    },
-
-    {
-        title:"Custom Name Plate",
-        image:"https://placehold.co/800x900",
-        large:true
-    },
-
-    {
-        title:"Wedding Gift",
-        image:"https://placehold.co/600x600",
+        setLoading(false);
     }
 
-];
+    if (loading) {
+        return (
+            <section className="gallery">
+                <div className="container">
+                    <h3 className="text-center">Loading...</h3>
+                </div>
+            </section>
+        );
+    }
 
-function Gallery(){
+    return (
+        <section className="gallery">
 
-    return(
+            <div className="container">
 
-<section className="gallery-section" id="gallery">
+                <div className="gallery-header">
 
-<div className="container">
+                    <span className="gallery-subtitle">
+                        OUR COLLECTION
+                    </span>
 
-<div className="text-center mb-5">
+                    <h2 className="gallery-title">
+                        Featured Creations
+                    </h2>
 
-<h6 className="section-subtitle">
-OUR COLLECTION
-</h6>
+                    <p className="gallery-description">
+                        Every handcrafted piece is uniquely designed with creativity and love.
+                    </p>
 
-<h2 className="section-title">
-Featured Creations
-</h2>
+                </div>
 
-<p className="section-description">
-Every handcrafted piece is uniquely designed with
-creativity and love.
-</p>
+                <div className="gallery-grid">
 
-</div>
+                    {artworks.map((art) => (
+                        <GalleryCard
+                            key={art.id}
+                            image={art.image}
+                            title={art.title}
+                            description={art.description}
+                            price={art.price}
+                        />
+                    ))}
 
-<div className="gallery-grid">
+                </div>
 
-{
-gallery.map((item,index)=>
+                <div className="gallery-footer">
 
-<GalleryCard
+                    <button className="btn btn-outline-dark">
+                        View All Collection
+                    </button>
 
-key={index}
+                </div>
 
-title={item.title}
+            </div>
 
-image={item.image}
-
-large={item.large}
-
-/>
-
-)
+        </section>
+    );
 }
-
-</div>
-
-<div className="text-center mt-5">
-
-<a href="#" className="hero-btn-primary">
-
-View Complete Gallery
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-    )
-
-}
-
-export default Gallery;

@@ -1,7 +1,14 @@
 import "./Gallery.css";
 
-function GalleryCard({ image, title }) {
+export default function GalleryCard({
+    image,
+    title,
+    description,
+    price
+}) {
+
     return (
+
         <div className="gallery-card">
 
             <img
@@ -10,11 +17,23 @@ function GalleryCard({ image, title }) {
             />
 
             <div className="gallery-overlay">
-                <h4>{title}</h4>
+
+                <div>
+
+                    <h4>{title}</h4>
+
+                    <p>{description}</p>
+
+                    <span className="gallery-price">
+                        ₹ {price}
+                    </span>
+
+                </div>
+
             </div>
 
         </div>
-    );
-}
 
-export default GalleryCard;
+    );
+
+}

@@ -1,27 +1,42 @@
-import { useState } from 'react';
-import Header from './Components/Header/header';
-import './App.css';
-import Hero from './Components/Hero/hero';
-import Gallery from './Components/Gallery/Gallery';
-import Services from './Components/Services/Services';
-import Contact from './Components/Contact/Contact';
-import Footer from './Components/Footer/Footer';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import Home from "./pages/Home";
+
+import Login from "./admin/pages/Login";
+import Dashboard from "./admin/pages/Dashboard";
+import Artworks from "./admin/pages/Artworks";
+import Categories from "./admin/pages/Categories";
+import Orders from "./admin/pages/Orders";
+import Settings from "./admin/pages/Settings";
+
+import AdminLayout from "./admin/layouts/AdminLayout";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 function App() {
-  const [count, setCount] = useState(0);
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Home />} />
 
-  return (
-    <>
-      <Header />
-      <Hero />
-      <Gallery />
-      <Services />
-      <Contact />
-      <Footer />
-     
-    </>
-  );
+                <Route path="/admin/login" element={<Login />} />
+
+                <Route
+                    path="/admin"
+                    element={
+                        <ProtectedRoute>
+                            <AdminLayout />
+                        </ProtectedRoute>
+                    }
+                >
+                    <Route path="dashboard" element={<Dashboard />} />
+                    <Route path="artworks" element={<Artworks />} />
+                    <Route path="categories" element={<Categories />} />
+                    <Route path="orders" element={<Orders />} />
+                    <Route path="settings" element={<Settings />} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;

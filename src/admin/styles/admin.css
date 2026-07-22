@@ -1,0 +1,157 @@
+:root{
+    --sidebar-width:260px;
+    --navbar-height:70px;
+    --sidebar-bg:#1f2937;
+    --sidebar-hover:#374151;
+    --primary:#8B5CF6;
+    --bg:#f8fafc;
+}
+
+.admin-layout{
+    display:flex;
+    min-height:100vh;
+    background:var(--bg);
+}
+
+.sidebar{
+    width:var(--sidebar-width);
+    background:var(--sidebar-bg);
+    color:white;
+    position:fixed;
+    left:0;
+    top:0;
+    bottom:0;
+    overflow-y:auto;
+    transition:.3s;
+    z-index:1040;
+}
+
+.sidebar-header{
+    padding:25px;
+    font-size:22px;
+    font-weight:bold;
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.sidebar a{
+    color:white;
+    text-decoration:none;
+    display:block;
+    padding:14px 25px;
+    transition:.3s;
+}
+
+.sidebar a:hover,
+.sidebar a.active{
+    background:var(--sidebar-hover);
+}
+
+.main-content{
+    margin-left:var(--sidebar-width);
+    flex:1;
+}
+
+.admin-navbar{
+    height:var(--navbar-height);
+    background:white;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 30px;
+    box-shadow:0 2px 15px rgba(0,0,0,.08);
+}
+
+.page-content{
+    padding:30px;
+}
+
+@media(max-width:992px){
+
+    .sidebar{
+        transform:translateX(-100%);
+    }
+
+    .sidebar.show{
+        transform:translateX(0);
+    }
+
+    .main-content{
+        margin-left:0;
+    }
+
+}
+
+.sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1030;
+}
+
+@media (min-width: 992px) {
+    .sidebar-overlay {
+        display: none;
+    }
+}
+
+
+.artwork-thumb{
+    width:70px;
+    height:70px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.table {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.table th {
+    font-weight: 600;
+    white-space: nowrap;
+    padding: 16px;
+}
+
+.table td {
+    vertical-align: middle;
+    padding: 16px;
+}
+
+.table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+.btn-sm {
+    min-width: 70px;
+}
+
+
+.modal-backdrop-custom{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:2000;
+}
+
+.artwork-modal{
+    background:white;
+    width:600px;
+    max-width:95%;
+    border-radius:16px;
+    padding:24px;
+    box-shadow:0 20px 40px rgba(0,0,0,.2);
+}
+
+@media(max-width:768px){
+
+    .artwork-modal{
+        width:95%;
+        padding:18px;
+    }
+
+}
