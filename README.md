@@ -1,16 +1,117 @@
-# React + Vite
+# Richie Arts Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive website for **Richie Arts**, showcasing handcrafted resin art and custom creations. Built with **React** and **Vite**, the website provides an elegant browsing experience with a clean, responsive design.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* Modern and responsive UI
+* Hero section with featured artwork
+* Gallery showcasing resin creations
+* Services section highlighting offerings
+* Contact form for customer inquiries
+* Responsive footer with social links
+* Mobile-friendly navigation
+* Consistent design system using CSS variables
 
-## React Compiler
+##  Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* React
+* Vite
+* Bootstrap 5
+* Bootstrap Icons
+* CSS3
+* GitHub Pages (Deployment)
 
-## Expanding the ESLint configuration
+## 📁 Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```text
+src/
+├── assets/
+│   ├── fonts/
+│   ├── images/
+│   └── styles/
+├── components/
+│   ├── Header/
+│   ├── Hero/
+│   ├── Gallery/
+│   ├── Services/
+│   ├── Contact/
+│   └── Footer/
+├── App.jsx
+└── main.jsx
+```
+
+##  Getting Started
+
+### Clone the repository
+
+```bash
+git clone https://github.com/Raviteja2299/Richie-Arts.git
+cd Richie-Arts
+```
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Start the development server
+
+```bash
+npm run dev
+```
+
+Open your browser and visit:
+
+```text
+http://localhost:5173
+```
+
+##  Build for Production
+
+```bash
+npm run build
+```
+
+##  Deployment
+
+This project is deployed using **GitHub Pages** with **GitHub Actions**. Every push to the `main` branch automatically builds and deploys the latest version of the website.
+
+##  Design
+
+The website follows a clean and modern design with a handcrafted aesthetic using the following color palette:
+
+| Color      | Hex       |
+| ---------- | --------- |
+| Primary    | `#223843` |
+| Secondary  | `#D77A61` |
+| Accent     | `#D8B4A0` |
+| Background | `#EFF1F3` |
+| Border     | `#DBD3D8` |
+
+##  Roadmap
+
+* Gallery page
+* Product categories
+* Image lightbox
+* Contact form integration
+* Custom order request form
+* SEO improvements
+* Performance optimization
+* Dark mode (optional)
+
+##  Contributing
+
+Contributions are welcome! If you'd like to improve the project:
+
+1. Fork the repository.
+2. Create a feature branch.
+3. Commit your changes.
+4. Open a Pull Request.
+
+Please keep the code clean, reusable, and consistent with the existing project structure and design.
+
+##  License
+
+This project is intended for the Richie Arts website. All artwork, images, and branding belong to their respective owner unless otherwise stated.
