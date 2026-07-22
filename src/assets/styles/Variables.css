@@ -1,0 +1,32 @@
+:root {
+
+    /* Brand Colors */
+
+    --jet-black: #223843;
+    --platinum: #eff1f3;
+    --dust-grey: #dbd3d8;
+    --desert-sand: #d8b4a0;
+    --burnt-peach: #d77a61;
+
+    /* Semantic Colors */
+
+    --primary: var(--jet-black);
+    --secondary: var(--burnt-peach);
+    --accent: var(--desert-sand);
+
+    --background: var(--platinum);
+    --surface: #ffffff;
+
+    --text: var(--jet-black);
+    --text-light: #6f7478;
+
+    --border: var(--dust-grey);
+
+    /* Effects */
+
+    --radius: 18px;
+
+    --shadow: 0 12px 35px rgba(34,56,67,.08);
+
+    --transition: .3s ease;
+}

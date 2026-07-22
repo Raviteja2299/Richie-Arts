@@ -1,0 +1,255 @@
+/* ==========================================
+   Header
+========================================== */
+
+.navbar {
+
+    background: var(--surface);
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid var(--border);
+
+    transition: var(--transition);
+
+    z-index: 1000;
+
+}
+
+/* ==========================
+   Logo
+========================== */
+
+.logo {
+
+    font-family: "Orange Avenue", cursive;
+
+    font-size: 3rem;
+
+    color: var(--primary);
+
+    text-decoration: none;
+
+    letter-spacing: 2px;
+
+    transition: var(--transition);
+
+}
+
+.logo:hover {
+
+    color: var(--secondary);
+
+}
+
+/* ==========================
+   Navigation
+========================== */
+
+.navbar-nav {
+
+    align-items: center;
+
+}
+
+.navbar-nav .nav-link {
+
+    color: var(--primary);
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 1rem;
+
+    font-weight: 500;
+
+    margin: 0 12px;
+
+    position: relative;
+
+    transition: var(--transition);
+
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+
+    color: var(--secondary);
+
+}
+
+/* Underline Animation */
+
+.navbar-nav .nav-link::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -6px;
+
+    width: 0;
+
+    height: 2px;
+
+    background: var(--secondary);
+
+    transition: var(--transition);
+
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+
+    width: 100%;
+
+}
+
+/* ==========================
+   Order Button
+========================== */
+
+.order-btn {
+
+    background: var(--secondary);
+
+    color: #fff;
+
+    padding: 12px 28px;
+
+    border-radius: 50px;
+
+    font-weight: 600;
+
+    border: none;
+
+    text-decoration: none;
+
+    transition: var(--transition);
+
+}
+
+.order-btn:hover {
+
+    background: var(--primary);
+
+    color: #fff;
+
+    transform: translateY(-2px);
+
+}
+
+/* ==========================
+   Navbar Toggle
+========================== */
+
+.navbar-toggler {
+
+    border: none;
+
+    box-shadow: none !important;
+
+}
+
+.navbar-toggler:focus {
+
+    box-shadow: none;
+
+}
+
+/* ==========================
+   Mobile
+========================== */
+
+@media (max-width: 991.98px) {
+
+    .logo {
+
+        font-size: 2.4rem;
+
+    }
+
+    .navbar-collapse {
+
+        margin-top: 20px;
+
+        background: var(--surface);
+
+        border-radius: var(--radius);
+
+        padding: 15px;
+
+        box-shadow: var(--shadow);
+
+    }
+
+    .navbar-nav {
+
+        text-align: center;
+
+    }
+
+    .navbar-nav .nav-item {
+
+        width: 100%;
+
+        border-bottom: 1px solid var(--border);
+
+    }
+
+    .navbar-nav .nav-item:last-child {
+
+        border-bottom: none;
+
+    }
+
+    .navbar-nav .nav-link {
+
+        padding: 16px 0;
+
+        margin: 0;
+
+    }
+
+    .navbar-nav .nav-link::after {
+
+        display: none;
+
+    }
+
+    .order-btn {
+
+        display: inline-block;
+
+        margin-top: 20px;
+
+        width: 100%;
+
+        text-align: center;
+
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .navbar {
+
+        padding: 14px 0;
+
+    }
+
+    .logo {
+
+        font-size: 2rem;
+
+    }
+
+    .order-btn {
+
+        padding: 12px;
+
+    }
+
+}
