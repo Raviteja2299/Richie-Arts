@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { getAllCategories } from "../../services/categoryService";
+import { getAllCategories } from "../../Services/categoryService";
 
 const initialForm = {
     title: "",

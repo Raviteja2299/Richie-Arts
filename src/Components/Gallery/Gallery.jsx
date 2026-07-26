@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./Gallery.css";
 import GalleryCard from "./GalleryCard";
-import { getFeaturedArtworks } from "../../services/artworkService";
+import { getFeaturedArtworks } from "../../Services/artworkService";
 
 export default function Gallery() {
     const [artworks, setArtworks] = useState([]);
