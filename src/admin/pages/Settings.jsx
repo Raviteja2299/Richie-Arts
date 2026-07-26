@@ -5,7 +5,7 @@ export default function Settings() {
         <div>
           <PageHeader
                      title="Settings"
-                     subtitle="Welcome back!"
+                     subtitle="Future feature to manage settings"
                  />
         </div>
     );

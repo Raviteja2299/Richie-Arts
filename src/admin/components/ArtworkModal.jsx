@@ -1,29 +1,126 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+import { getAllCategories } from "../../services/categoryService";
+
+const initialForm = {
+    title: "",
+    category: "",
+    price: "",
+    description: "",
+    featured: false,
+    image: null,
+};
 
 export default function ArtworkModal({
     show,
     onClose,
-    onSave
+    onSave,
+    artwork = null,
 }) {
+    const [form, setForm] = useState(initialForm);
+    const [saving, setSaving] = useState(false);
+    const [categories, setCategories] = useState([]);
 
-    const [form, setForm] = useState({
-        title: "",
-        category: "",
-        price: "",
-        description: "",
-        featured: false,
-        image: null
-    });
+
+        async function loadCategories() {
+
+            const { data, error } = await getAllCategories();
+
+            if (error) {
+                console.error(error);
+                return;
+            }
+
+            setCategories(data);
+        }
+
+
+    useEffect(() => {
+        if (!show) return;
+
+        loadCategories();
+
+        if (artwork) {
+            setForm({
+                title: artwork.title || "",
+                category: artwork.category || "",
+                price: artwork.price || "",
+                description: artwork.description || "",
+                featured: artwork.featured || false,
+                image: null,
+            });
+        } else {
+            setForm(initialForm);
+        }
+    }, [artwork, show]);
+
+
 
     if (!show) return null;
 
     function handleChange(e) {
         const { name, value, type, checked } = e.target;
 
-        setForm(prev => ({
+        setForm((prev) => ({
             ...prev,
-            [name]: type === "checkbox" ? checked : value
+            [name]: type === "checkbox" ? checked : value,
         }));
+    }
+
+    function handleImageChange(e) {
+        const file = e.target.files[0];
+
+        if (!file) return;
+
+        setForm((prev) => ({
+            ...prev,
+            image: file,
+        }));
+    }
+
+    async function handleSubmit() {
+        if (!form.title.trim()) {
+            alert("Title is required.");
+            return;
+        }
+
+        if (!artwork && !form.image) {
+            alert("Please select an image.");
+            return;
+        }
+
+        if (
+            form.category === "Other" &&
+            !form.customCategory.trim()
+        ) {
+            alert("Please enter a category.");
+            return;
+        }
+
+
+
+
+
+    const artworkData = {
+        ...form
+        
+    };
+
+    try {
+        setSaving(true);
+
+        await onSave(artworkData);
+
+        setForm(initialForm);
+        onClose();
+    } finally {
+        setSaving(false);
+    }
+}
+
+    function handleClose() {
+        setForm(initialForm);
+        onClose();
     }
 
     return (
@@ -31,81 +128,155 @@ export default function ArtworkModal({
 
             <div className="artwork-modal">
 
-                <div className="d-flex justify-content-between align-items-center mb-4">
+                {/* Header */}
 
-                    <h3>Add Artwork</h3>
+                <div className="modal-header-custom">
+
+                    <h3 className="mb-0">
+                        {artwork ? "Edit Artwork" : "Add Artwork"}
+                    </h3>
 
                     <button
                         className="btn-close"
-                        onClick={onClose}
+                        onClick={handleClose}
                     />
 
                 </div>
 
-                <input
-                    type="file"
-                    className="form-control mb-3"
-                />
+                {/* Scrollable Body */}
 
-                <input
-                    className="form-control mb-3"
-                    placeholder="Title"
-                    name="title"
-                    onChange={handleChange}
-                />
+                <div className="modal-content-custom">
 
-                <input
-                    className="form-control mb-3"
-                    placeholder="Category"
-                    name="category"
-                    onChange={handleChange}
-                />
-
-                <input
-                    className="form-control mb-3"
-                    placeholder="Price"
-                    name="price"
-                    type="number"
-                    onChange={handleChange}
-                />
-
-                <textarea
-                    className="form-control mb-3"
-                    rows={4}
-                    placeholder="Description"
-                    name="description"
-                    onChange={handleChange}
-                />
-
-                <div className="form-check mb-4">
+                    <label className="form-label">
+                        Artwork Image
+                    </label>
 
                     <input
-                        type="checkbox"
-                        className="form-check-input"
-                        name="featured"
+                        type="file"
+                        accept="image/*"
+                        className="form-control mb-3"
+                        onChange={handleImageChange}
+                    />
+
+                    {form.image && (
+
+                        <div className="mb-4">
+
+                            <img
+                                src={URL.createObjectURL(form.image)}
+                                alt="Preview"
+                                className="img-fluid rounded border"
+                                style={{
+                                    maxHeight: 220,
+                                    objectFit: "cover",
+                                }}
+                            />
+
+                            <small className="text-muted d-block mt-2">
+                                {form.image.name}
+                            </small>
+
+                        </div>
+
+                    )}
+
+                    <label className="form-label">
+                        Title
+                    </label>
+
+                    <input
+                        className="form-control mb-3"
+                        name="title"
+                        value={form.title}
                         onChange={handleChange}
                     />
 
-                    <label className="form-check-label">
-                        Featured
+                    <label className="form-label">
+                        Category
                     </label>
+
+                    <select
+                        className="form-select mb-3"
+                        name="category"
+                        value={form.category}
+                        onChange={handleChange}
+                    >
+                        <option value="">Select Category</option>
+
+                        {categories.map((category) => (
+                            <option
+                                key={category.id}
+                                value={category.name}
+                            >
+                                {category.name}
+                            </option>
+                        ))}
+                    </select>
+
+
+                    <label className="form-label">
+                        Price
+                    </label>
+
+                    <input
+                        type="number"
+                        className="form-control mb-3"
+                        name="price"
+                        value={form.price}
+                        onChange={handleChange}
+                    />
+
+                    <label className="form-label">
+                        Description
+                    </label>
+
+                    <textarea
+                        rows={4}
+                        className="form-control mb-3"
+                        name="description"
+                        value={form.description}
+                        onChange={handleChange}
+                    />
+
+                    <div className="form-check">
+
+                        <input
+                            className="form-check-input"
+                            type="checkbox"
+                            name="featured"
+                            checked={form.featured}
+                            onChange={handleChange}
+                        />
+
+                        <label className="form-check-label">
+                            Featured Artwork
+                        </label>
+
+                    </div>
 
                 </div>
 
-                <div className="text-end">
+                {/* Footer */}
+
+                <div className="modal-footer-custom">
 
                     <button
-                        className="btn btn-secondary me-2"
-                        onClick={onClose}
+                        className="btn btn-outline-secondary me-2"
+                        onClick={handleClose}
                     >
                         Cancel
                     </button>
 
                     <button
                         className="btn btn-primary"
-                        onClick={() => onSave(form)}
+                        disabled={saving}
+                        onClick={handleSubmit}
                     >
-                        Save Artwork
+                        {saving
+                            ? "Saving..."
+                            : artwork
+                                ? "Update Artwork"
+                                : "Save Artwork"}
                     </button>
 
                 </div>

@@ -18,3 +18,33 @@ export async function getAllArtworks() {
 
     return { data, error };
 }
+
+export async function createArtwork(artwork) {
+    return await supabase
+        .from("artworks")
+        .insert([artwork])
+        .select();
+}
+
+// Update an existing artwork by its ID
+
+export async function updateArtwork(id, artwork) {
+    const { data, error } = await supabase
+        .from("artworks")
+        .update(artwork)
+        .eq("id", id)
+        .select();
+
+    return { data, error };
+}
+
+// Delete an artwork by its ID
+
+export async function deleteArtwork(id) {
+    const { error } = await supabase
+        .from("artworks")
+        .delete()
+        .eq("id", id);
+
+    return { error };
+}

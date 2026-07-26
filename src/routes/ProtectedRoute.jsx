@@ -5,8 +5,6 @@ export default function ProtectedRoute({ children }) {
     const { user, loading } = useAuth();
     const location = useLocation();
 
-    console.log("Loading:", loading);
-    console.log("User:", user);
 
     // Show a loading screen while checking the session
     if (loading) {

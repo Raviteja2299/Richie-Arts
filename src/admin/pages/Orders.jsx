@@ -6,7 +6,7 @@ export default function Orders() {
         <div>
           <PageHeader
                      title="Orders"
-                     subtitle="Welcome back!"
+                     subtitle="Future feature to manage orders"
                  />
         </div>
     );
