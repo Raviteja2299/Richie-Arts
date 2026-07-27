@@ -1,6 +1,6 @@
 import "./Contact.css";
 import { useState } from "react";
-import { createMessage } from "../Services/messageService";
+import { createMessage } from "../../Services/messageService";
 import {
     FaPhoneAlt,
     FaEnvelope,

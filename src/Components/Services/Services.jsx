@@ -5,22 +5,22 @@ const services = [
     {
         title: "Custom Resin Art",
         description: "Personalized resin creations crafted exclusively for your style and ideas.",
-        image: "https://placehold.co/600x500"
+        image: "/src/assets/Images/CustomResinArt.webp"
     },
     {
         title: "Wedding Gifts",
         description: "Unique keepsakes for weddings, anniversaries, and memorable celebrations.",
-        image: "https://placehold.co/600x500"
+        image: "src/assets/Images/WeddingGifts.webp"
     },
     {
         title: "Home Décor",
         description: "Elegant resin décor pieces that add beauty to every space.",
-        image: "https://placehold.co/600x500"
+        image: "src/assets/Images/HomeDecor.webp"
     },
     {
         title: "Corporate Gifts",
         description: "Premium handcrafted gifts for businesses, clients, and special events.",
-        image: "https://placehold.co/600x500"
+        image: "src/assets/Images/CorporateGifts.webp"
     }
 ];
 

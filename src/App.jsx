@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 
 import Home from "./Pages/Home";
+import GalleryPage from "./Pages/GalleryPage";
 
 import Login from "./admin/pages/Login";
 import Dashboard from "./admin/pages/Dashboard";
@@ -13,14 +14,18 @@ import Messages from "./admin/pages/Messages";
 import AdminLayout from "./admin/layouts/AdminLayout";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import NotFound from "./Pages/NotFound";
+import PublicLayout from "./layouts/PublicLayout";
+import ArtworkDetails from "./Pages/ArtworkDetails";
 
 function App() {
     return (
         <BrowserRouter>
             <Routes>
+            <Route element={<PublicLayout />}>
                 <Route path="/" element={<Home />} />
-
-                <Route path="/portal/login" element={<Login />} />
+                <Route path="/gallery" element={<GalleryPage />} />
+                <Route path="/gallery/:id" element={<ArtworkDetails />} />
+            </Route>
 
                 <Route
                     path="/portal"
@@ -36,6 +41,7 @@ function App() {
                     <Route path="orders" element={<Orders />} />
                     <Route path="settings" element={<Settings />} />
                     <Route path="messages" element={<Messages />} />
+                    
                     
                 </Route>
                 <Route path="/admin/*" element={<Navigate to="/" replace />} />

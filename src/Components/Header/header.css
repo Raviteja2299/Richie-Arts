@@ -1,43 +1,45 @@
-
-
-.navbar {
-
-    background: var(--surface);
-
-    padding: 18px 0;
-
-    border-bottom: 1px solid var(--border);
-
-    transition: var(--transition);
-
-    z-index: 1000;
-
-}
-
-/* ==========================
-   Logo
-========================== */
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Montserrat:wght@600;700&display=swap');
 
 .logo {
-
-    font-family: "Orange Avenue", cursive;
-
-    font-size: 3rem;
-
-    color: var(--primary);
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
 
     text-decoration: none;
+    color: var(--primary);
 
-    letter-spacing: 2px;
+    line-height: 1;
+    white-space: nowrap;
+}
 
-    transition: var(--transition);
+.logo {
+    font-family: "Berkshire Swash", cursive;
+    font-size: 2.4rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    transition: 0.3s ease;
+}
 
+.logo span {
+    font-family: "Berkshire Swash", cursive;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 5px;
+    color: var(--secondary);
+    align-self: flex-end;
+    margin-bottom: 4px;
 }
 
 .logo:hover {
+    transform: scale(1.03);
+}
 
-    color: var(--secondary);
+.logo:hover span {
+    letter-spacing: 6px;
+}
 
+html {
+    scroll-behavior: smooth;
 }
 
 /* ==========================
@@ -137,6 +139,56 @@
     transform: translateY(-2px);
 
 }
+/* ==========================
+   Header
+========================== */
+
+.header {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    width: 100%;
+
+    z-index: 1050;
+
+    background: rgba(255,255,255,.90);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid rgba(0,0,0,.06);
+
+    transition: all .35s ease;
+}
+
+.header.scrolled {
+
+    background: rgba(255,255,255,.96);
+
+    box-shadow: 0 8px 30px rgba(0,0,0,.08);
+}
+
+.header .navbar {
+
+    padding: 18px 0;
+
+    background: transparent !important;
+
+    border: none;
+
+    box-shadow: none !important;
+
+    transition: all .35s ease;
+}
+
+.header.scrolled .navbar {
+
+    padding: 10px 0;
+}
 
 /* ==========================
    Navbar Toggle
@@ -163,9 +215,13 @@
 @media (max-width: 991.98px) {
 
     .logo {
+        font-size: 1.9rem;
+        }
 
-        font-size: 2.4rem;
-
+    .logo span {
+        font-size: 0.75rem;
+        letter-spacing: 4px;
+        margin-bottom: 3px;
     }
 
     .navbar-collapse {

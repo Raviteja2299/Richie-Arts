@@ -30,7 +30,7 @@ function Hero() {
 
                             <div className="hero-buttons">
 
-                                <a href="#gallery" className="hero-btn-primary">
+                                <a href="gallery" className="hero-btn-primary">
                                     View Gallery
                                 </a>
 

@@ -48,3 +48,13 @@ export async function deleteArtwork(id) {
 
     return { error };
 }
+
+export async function getArtwork(id){
+
+    return await supabase
+        .from("artworks")
+        .select("*")
+        .eq("id",id)
+        .single();
+
+}

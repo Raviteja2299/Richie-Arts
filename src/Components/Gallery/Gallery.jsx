@@ -1,9 +1,19 @@
 import { useEffect, useState } from "react";
 import "./Gallery.css";
 import GalleryCard from "./GalleryCard";
-import { getFeaturedArtworks } from "../../Services/artworkService";
 
-export default function Gallery() {
+import { Link } from "react-router-dom";
+import {
+    getFeaturedArtworks,
+    getAllArtworks,
+} from "../../Services/artworkService";
+
+
+export default function Gallery({
+    featured = true,
+    showViewAll = true,
+}) {
+
     const [artworks, setArtworks] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -12,11 +22,15 @@ export default function Gallery() {
     }, []);
 
     async function fetchArtworks() {
-        const { data, error } = await getFeaturedArtworks();
+
+        const { data, error } = featured
+            ? await getFeaturedArtworks()
+            : await getAllArtworks();
 
         if (error) {
             console.error(error);
         } else {
+            console.log(data);
             setArtworks(data);
         }
 
@@ -59,22 +73,19 @@ export default function Gallery() {
                     {artworks.map((art) => (
                         <GalleryCard
                             key={art.id}
-                            image={art.image}
-                            title={art.title}
-                            description={art.description}
-                            price={art.price}
+                            artwork={art}
                         />
                     ))}
 
                 </div>
 
+                {showViewAll && (
                 <div className="gallery-footer">
-
-                    <button className="btn btn-outline-dark">
+                    <Link to="/gallery" className="btn btn-outline-dark">
                         View All Collection
-                    </button>
-
+                    </Link>
                 </div>
+            )}
 
             </div>
 
