@@ -19,7 +19,7 @@ export default function Login() {
         return;
     }
 
-    navigate("/admin/dashboard");
+    navigate("/portal/dashboard");
 }
 
     return (

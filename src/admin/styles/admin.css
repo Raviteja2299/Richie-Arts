@@ -37,9 +37,17 @@
 
 .sidebar-header{
     padding:25px;
-    font-size:22px;
-    font-weight:bold;
-    border-bottom:1px solid rgba(255,255,255,.08);
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 1rem;
+    cursor: pointer;
+}
+.sidebar-header:hover {
+    text-decoration: none;
+    color: inherit;
 }
 
 .sidebar a{

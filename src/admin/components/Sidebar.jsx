@@ -1,14 +1,18 @@
 
 import "../styles/admin.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 export default function Sidebar({ show, onClose }) {
     return (
         <aside className={`sidebar ${show ? "show" : ""}`}>
 
-            <div className="sidebar-header">
+            <Link
+                to="/portal/dashboard"
+                className="sidebar-header"
+                onClick={onClose}
+            >
                 Richie Arts
-            </div>
+            </Link>
 
             <NavLink to="/portal/dashboard" onClick={onClose}>
                 Dashboard

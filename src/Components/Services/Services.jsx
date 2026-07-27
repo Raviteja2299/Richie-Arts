@@ -29,7 +29,7 @@ const services = [
 ];
 
 function Services() {
-    console.log(CustomResinArt);
+  
     return (
         <section className="services-section" id="services">
 
