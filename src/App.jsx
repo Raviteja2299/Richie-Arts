@@ -27,23 +27,26 @@ function App() {
                 <Route path="/gallery/:id" element={<ArtworkDetails />} />
             </Route>
 
-                <Route
-                    path="/portal"
-                    element={
-                        <ProtectedRoute>
-                            <AdminLayout />
-                        </ProtectedRoute>
-                    }
-                >
-                    <Route path="dashboard" element={<Dashboard />} />
-                    <Route path="artworks" element={<Artworks />} />
-                    <Route path="categories" element={<Categories />} />
-                    <Route path="orders" element={<Orders />} />
-                    <Route path="settings" element={<Settings />} />
-                    <Route path="messages" element={<Messages />} />
-                    
-                    
-                </Route>
+            <Route path="/portal/login" element={<Login />} />
+
+            <Route
+                path="/portal"
+                element={
+                    <ProtectedRoute>
+                        <AdminLayout />
+                    </ProtectedRoute>
+                }
+            >
+                <Route path="dashboard" element={<Dashboard />} />
+                <Route path="artworks" element={<Artworks />} />
+                <Route path="categories" element={<Categories />} />
+                <Route path="orders" element={<Orders />} />
+                <Route path="settings" element={<Settings />} />
+                <Route path="messages" element={<Messages />} />
+                
+                
+            </Route>
+                
                 <Route path="/admin/*" element={<Navigate to="/" replace />} />
 
                 <Route path="*" element={<NotFound />} />

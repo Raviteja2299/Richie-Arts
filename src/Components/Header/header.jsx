@@ -51,7 +51,7 @@ function Header() {
                             </li>
 
                             <li className="nav-item">
-                                <a className="nav-link" href="#gallery">Gallery</a>
+                                <a className="nav-link" href="gallery">Gallery</a>
                             </li>
 
                             <li className="nav-item">
