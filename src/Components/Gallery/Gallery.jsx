@@ -29,8 +29,7 @@ export default function Gallery({
 
         if (error) {
             console.error(error);
-        } else {
-            console.log(data);
+        } else {            
             setArtworks(data);
         }
 
