@@ -8,7 +8,7 @@ import {
     getMessages,
     deleteMessage,
     updateMessageStatus
-} from "../../Components/Services/messageService";
+} from "../../Services/messageService";
 
 import "../styles/Messages.css";
 

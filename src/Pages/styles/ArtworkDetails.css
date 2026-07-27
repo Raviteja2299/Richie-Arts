@@ -1,0 +1,164 @@
+/* ==========================
+   Artwork Details
+========================== */
+
+.artwork-details {
+    padding: 70px 0;
+    background: var(--background);
+    min-height: 80vh;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* ==========================
+   Image
+========================== */
+
+.details-image {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,.12);
+}
+
+.details-image img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* ==========================
+   Content
+========================== */
+
+.details-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.details-category {
+    display: inline-block;
+    align-self: flex-start;
+
+    background: var(--secondary);
+    color: #fff;
+
+    padding: 6px 16px;
+    border-radius: 999px;
+
+    font-size: .9rem;
+    font-weight: 600;
+
+    margin-bottom: 20px;
+}
+
+.details-title {
+    font-size: 2.8rem;
+    color: var(--text);
+    margin-bottom: 15px;
+}
+
+.details-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: 25px;
+}
+
+.details-description {
+    color: var(--muted);
+    line-height: 1.9;
+    font-size: 1.05rem;
+    margin-bottom: 40px;
+}
+
+/* ==========================
+   Buttons
+========================== */
+
+.details-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.whatsapp-btn,
+.back-btn {
+
+    padding: 14px 28px;
+
+    border-radius: 50px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: .3s;
+}
+
+.whatsapp-btn {
+    background: #25D366;
+    color: white;
+}
+
+.whatsapp-btn:hover {
+    transform: translateY(-2px);
+}
+
+.back-btn {
+    border: 2px solid var(--secondary);
+    color: var(--secondary);
+}
+
+.back-btn:hover {
+    background: var(--secondary);
+    color: white;
+}
+
+/* ==========================
+   Responsive
+========================== */
+
+@media (max-width: 992px) {
+
+    .details-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .details-title {
+        font-size: 2.2rem;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .artwork-details {
+        padding: 50px 0;
+    }
+
+    .details-title {
+        font-size: 1.8rem;
+    }
+
+    .details-price {
+        font-size: 1.6rem;
+    }
+
+    .details-actions {
+        flex-direction: column;
+    }
+
+    .whatsapp-btn,
+    .back-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+}

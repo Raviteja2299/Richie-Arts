@@ -1,5 +1,7 @@
 import "./Footer.css";
 
+import { FaInstagram, FaFacebookF, FaWhatsapp } from "react-icons/fa";
+
 function Footer() {
     return (
         <footer className="footer">
@@ -45,16 +47,31 @@ function Footer() {
 
                     <div className="footer-social">
 
-                        <a href="#">
-                            <i className="bi bi-instagram"></i>
+                        <a
+                            href="https://instagram.com/your_username"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Instagram"
+                        >
+                            <FaInstagram />
                         </a>
 
-                        <a href="#">
-                            <i className="bi bi-facebook"></i>
+                        <a
+                            href="https://facebook.com/your_page"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Facebook"
+                        >
+                            <FaFacebookF />
                         </a>
 
-                        <a href="#">
-                            <i className="bi bi-whatsapp"></i>
+                        <a
+                            href="https://wa.me/919876543210"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="WhatsApp"
+                        >
+                            <FaWhatsapp />
                         </a>
 
                     </div>
