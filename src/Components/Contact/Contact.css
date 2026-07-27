@@ -1,6 +1,4 @@
-/* ==========================================
-   Contact Section
-========================================== */
+
 
 .contact-section {
 
@@ -24,9 +22,7 @@
 
 }
 
-/* ==========================
-   Contact Info
-========================== */
+
 
 .contact-info {
 
@@ -61,13 +57,43 @@
 .info-item {
 
     display: flex;
-
     align-items: center;
-
     gap: 16px;
-
     margin-bottom: 24px;
+}
+.info-item a{
+    color: var(--platinum) !important;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
 
+.info-icon {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--secondary);
+    color: var(--platinum);
+
+    border-radius: 50%;
+
+    font-size: 10px;
+    flex-shrink: 0;
+    padding: 10px;
+}
+
+.info-item span {
+    color: var(--platinum);
+    font-size: 18px;
+}
+
+.info-item a {
+    color: var(--platinum);
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .info-item i {
@@ -100,6 +126,7 @@
 
 }
 
+
 .social-icons a {
 
     width: 45px;
@@ -108,7 +135,7 @@
 
     border-radius: 50%;
 
-    background: rgba(255,255,255,.1);
+    background: var(--secondary);
 
     color: white;
 
@@ -141,6 +168,7 @@
     padding: 40px;
 
     box-shadow: var(--shadow);
+    
 
 }
 
@@ -153,6 +181,7 @@
     border-radius: 12px;
 
     font-size: .95rem;
+    
 
 }
 

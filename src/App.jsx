@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 
 import Home from "./Pages/Home";
 
@@ -8,9 +8,11 @@ import Artworks from "./admin/pages/Artworks";
 import Categories from "./admin/pages/Categories";
 import Orders from "./admin/pages/Orders";
 import Settings from "./admin/pages/Settings";
+import Messages from "./admin/pages/Messages";
 
 import AdminLayout from "./admin/layouts/AdminLayout";
 import ProtectedRoute from "./routes/ProtectedRoute";
+import NotFound from "./Pages/NotFound";
 
 function App() {
     return (
@@ -18,10 +20,10 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
 
-                <Route path="/admin/login" element={<Login />} />
+                <Route path="/portal/login" element={<Login />} />
 
                 <Route
-                    path="/admin"
+                    path="/portal"
                     element={
                         <ProtectedRoute>
                             <AdminLayout />
@@ -33,7 +35,12 @@ function App() {
                     <Route path="categories" element={<Categories />} />
                     <Route path="orders" element={<Orders />} />
                     <Route path="settings" element={<Settings />} />
+                    <Route path="messages" element={<Messages />} />
+                    
                 </Route>
+                <Route path="/admin/*" element={<Navigate to="/" replace />} />
+
+                <Route path="*" element={<NotFound />} />
             </Routes>
         </BrowserRouter>
     );

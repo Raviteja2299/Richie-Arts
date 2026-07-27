@@ -10,23 +10,27 @@ export default function Sidebar({ show, onClose }) {
                 Richie Arts
             </div>
 
-            <NavLink to="/admin/dashboard" onClick={onClose}>
+            <NavLink to="/portal/dashboard" onClick={onClose}>
                 Dashboard
             </NavLink>
 
-            <NavLink to="/admin/artworks" onClick={onClose}>
+            <NavLink to="/portal/artworks" onClick={onClose}>
                 Artworks
             </NavLink>
 
-            <NavLink to="/admin/categories" onClick={onClose}>
+            <NavLink to="/portal/messages" onClick={onClose}>
+                Messages
+            </NavLink>
+
+            <NavLink to="/portal/categories" onClick={onClose}>
                 Categories
             </NavLink>
 
-            <NavLink to="/admin/orders" onClick={onClose}>
+            <NavLink to="/portal/orders" onClick={onClose}>
                 Orders
             </NavLink>
 
-            <NavLink to="/admin/settings" onClick={onClose}>
+            <NavLink to="/portal/settings" onClick={onClose}>
                 Settings
             </NavLink>
 

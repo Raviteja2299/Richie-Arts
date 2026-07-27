@@ -19,7 +19,7 @@ export default function ProtectedRoute({ children }) {
     if (!user) {
         return (
             <Navigate
-                to="/admin/login"
+                to="/portal/login"
                 state={{ from: location }}
                 replace
             />

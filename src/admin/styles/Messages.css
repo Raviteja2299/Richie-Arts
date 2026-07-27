@@ -1,0 +1,254 @@
+
+
+.messages-page {
+    padding: 30px;
+    background: #f8f8f8;
+    min-height: 100vh;
+}
+
+.messages-page h2 {
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+
+.table-responsive {
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.table {
+    margin: 0;
+}
+
+.table thead {
+    background: #fafafa;
+}
+
+.table th {
+    border: none;
+    padding: 18px;
+    font-weight: 600;
+    color: #555;
+    white-space: nowrap;
+}
+
+.table td {
+    padding: 18px;
+    vertical-align: middle;
+    border-top: 1px solid #f1f1f1;
+}
+
+.table tbody tr {
+    transition: 0.25s ease;
+    cursor: pointer;
+}
+
+.table tbody tr:hover {
+    background: #fcfcfc;
+}
+
+
+
+.badge {
+    padding: 8px 14px;
+    border-radius: 999px;
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.bg-success {
+    background: #d4edda !important;
+    color: #198754 !important;
+}
+
+.bg-secondary {
+    background: #ececec !important;
+    color: #555 !important;
+}
+
+.bg-primary {
+    background: #d6e9ff !important;
+    color: #0d6efd !important;
+}
+
+
+
+.btn-sm {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: .25s;
+}
+
+.btn-outline-primary:hover {
+    transform: translateY(-2px);
+}
+
+.btn-outline-danger:hover {
+    transform: translateY(-2px);
+}
+
+.action-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.action-buttons .btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 10px;
+}
+
+.action-buttons .btn svg {
+    font-size: 15px;
+}
+
+.modal {
+    background: rgba(0,0,0,.45);
+    backdrop-filter: blur(3px);
+}
+
+.modal-dialog {
+    margin-top: 60px;
+}
+
+.modal-content {
+    border: none;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,.18);
+}
+
+.modal-header {
+    padding: 20px 25px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-title {
+    font-weight: 700;
+}
+
+.modal-body {
+    padding: 25px;
+}
+
+.modal-body p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.modal-body strong {
+    display: inline-block;
+    min-width: 80px;
+    color: #444;
+}
+
+.modal-footer {
+    border-top: 1px solid #eee;
+    padding: 18px 25px;
+}
+
+/* ===========================
+   Empty State
+=========================== */
+
+.empty-state {
+    padding: 80px 20px;
+    text-align: center;
+    color: #888;
+}
+
+.empty-state svg {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.empty-state h4 {
+    margin-bottom: 10px;
+}
+
+.empty-state p {
+    margin: 0;
+}
+
+/* ===========================
+   Scrollbar
+=========================== */
+
+.table-responsive::-webkit-scrollbar {
+    height: 8px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width: 992px) {
+
+    .messages-page {
+        padding: 20px;
+    }
+
+    .table th,
+    .table td {
+        padding: 14px;
+        font-size: 14px;
+    }
+
+    .btn-sm {
+        width: 34px;
+        height: 34px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .messages-page h2 {
+        font-size: 24px;
+    }
+
+    .modal-dialog {
+        margin: 10px;
+    }
+
+    .modal-content {
+        border-radius: 12px;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .messages-page {
+        padding: 15px;
+    }
+
+    .table th,
+    .table td {
+        font-size: 13px;
+        padding: 12px;
+    }
+
+    .badge {
+        font-size: 11px;
+        padding: 6px 10px;
+    }
+}
